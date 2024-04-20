@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.17] - 2023-04-20
+
+* drop async world tick
+* backport SPIGOT-5317: Create accessors for player absorption hearts
+* update snakeyaml + simple-yaml
+* fix spawner double-chests (without items)
+* Patch RNG reuse that could lead to coord exploit (Randar)
+
 ## [0.1.16] - 2023-03-25
 
 * remove two patches around hoppers
