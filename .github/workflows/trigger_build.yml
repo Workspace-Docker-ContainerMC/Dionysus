@@ -1,0 +1,18 @@
+name: "workflow_1 for trigger build in workflow_2"
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ] 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger
+        run: |
+          curl -X POST https://api.github.com/repos/Workspace-Docker-ContainerMC/dionysus_container/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.WORKFLOW_TOKEN }} \
+          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+      - uses: actions/checkout@v4
